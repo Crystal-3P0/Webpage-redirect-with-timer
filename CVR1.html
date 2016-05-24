@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Central Valley Realtors </title>
+  <script type= "text/javascript">
+
+    var g_timer_Ad = 5;
+    var g_timer_instance1 = 0;
+    var currentAd = "cycle1";
+    var g_counter = 15;
+
+    function startAdPage(){
+     setInterval("changeAd()", 5000);
+     g_timer_instance1 = setInterval("startCountdown()", 1000);
+     // setInterval("startCountdown()", 1000);
+    }
+
+    function changeAd(){
+
+    switch(currentAd) {
+     case "cycle1":
+         document.images[0].src = "cvb1.gif";
+        currentAd = "cycle2";
+        break;
+     case "cycle2":
+        document.images[0].src = "cvb2.gif";
+        currentAd = "cycle3";U
+        break;
+     case "cycle3":
+        document.images[0].src = "cvb3.gif";
+        break;
+    default:
+        document.write("Sorry. The images cannot be displayed right now.");
+  }
+
+
+    }
+
+    function startCountdown(){
+        document.forms[ 0 ].CountDown1.value = g_counter;
+        g_counter = g_counter - 1;
+        if( 0 == g_counter ) {
+          clearInterval( g_timer_instance1 );
+          window.location = "CVR2.html";
+        }
+        return;
+
+    }
+
+
+    </script>
+
+  <title>Page Title</title>
+  </head>
+
+  <body onload ="startAdPage()"> <script type="text/javascript">
+
+  // startAdPage();
+  </script>
+
+  <table style="width:100%">
+    <tr>
+      <td><img src="cvb1.gif" alt="test" align="left"></td>
+
+      <td> 
+      <p align = "center"><strong> Advertisement </strong><p>
+
+      <form name="f1">
+      <p align = "center"> The Central Valley Realtors home page will display in <input type = "text" size="1" name="CountDown1" readonly="readonly" value="0">.... seconds </p>
+      </form>
+
+      <p align = "center"><a href="CVR2.html">Skip Advertisement</a></p> 
+      </td>
+
+
+      <!-- <form action ="">
+      <input type="text" name="counter"> -->
+     
+    </tr>
+  </table>
+  </body>
+</html>
